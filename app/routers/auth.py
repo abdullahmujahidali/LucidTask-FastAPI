@@ -1,15 +1,20 @@
-from fastapi import Depends, HTTPException, APIRouter
-from app.models import UserCreate, Token
-from app.dependencies import create_access_token, verify_token
+from sqlalchemy.orm import Session
+from app.models import User, UserCreate, Token, get_db
+from app.dependencies import create_access_token
+from passlib.context import CryptContext
 
-router = APIRouter()
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @router.post("/signup", response_model=Token)
-async def signup(user: UserCreate):
-    # need to  replace it with real logic
-    user_id = "some_generated_user_id"  # Should be unique
+async def signup(user: UserCreate, db: Session = Depends(get_db)):
+    fake_hashed_password = pwd_context.hash(user.password)
+    db_user = User(email=user.email, hashed_password=fake_hashed_password)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
     access_token = create_access_token(data={"sub": user.email})
     return {"access_token": access_token, "token_type": "bearer"}
+
 
 @router.post("/login", response_model=Token)
 async def login(form_data: UserCreate):
