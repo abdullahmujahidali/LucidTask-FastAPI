@@ -1,7 +1,8 @@
 from fastapi.security import OAuth2PasswordBearer
-from jose import jwt
+from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from fastapi import Depends, HTTPException, status
+from .schemas import TokenData
 
 SECRET_KEY = "a_very_secret_key"
 ALGORITHM = "HS256"
@@ -29,8 +30,6 @@ async def verify_token(token: str = Depends(oauth2_scheme)):
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-        token_data = TokenData(user_id=username)
+        return TokenData(user_id=username)
     except JWTError:
         raise credentials_exception
-    return token_data
-    
