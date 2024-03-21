@@ -48,7 +48,7 @@ ecdsa==0.18.0
 email_validator==2.1.1
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0-py3-none-any.whl#sha256=83276fc78a70045627144786b52e1f2728ad5e29e5e43916ec37ea9c26a11212
 etelemetry==0.3.0
-eth-abi==4.1.0
+eth-abi==5.0.1
 eth-account==0.9.0
 eth-bloom==2.0.0
 eth-hash==0.5.2
