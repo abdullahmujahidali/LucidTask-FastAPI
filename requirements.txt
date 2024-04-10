@@ -228,7 +228,7 @@ tornado==6.3.2
 tqdm==4.65.0
 traitlets==5.9.0
 traits==6.3.2
-transformers==4.30.2
+transformers==4.38.0
 trie==2.1.1
 typer==0.9.0
 typing-inspect==0.9.0
