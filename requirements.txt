@@ -79,7 +79,7 @@ httplib2==0.22.0
 httpx==0.26.0
 huggingface-hub==0.17.2
 humbug==0.3.2
-idna==3.4
+idna==3.7
 importlib-metadata==6.8.0
 ipfshttpclient==0.8.0a2
 ipykernel==6.25.0
