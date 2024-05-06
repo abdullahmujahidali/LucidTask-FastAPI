@@ -243,7 +243,7 @@ wasabi==1.1.2
 wcwidth==0.2.6
 web3==6.2.0
 websockets==11.0.3
-Werkzeug==2.3.7
+Werkzeug==3.0.3
 wrapt==1.16.0
 yarl==1.9.2
 zipp==3.17.0
